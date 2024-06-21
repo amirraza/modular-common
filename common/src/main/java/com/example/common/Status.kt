@@ -1,8 +1,8 @@
 package com.example.common
 
 sealed class Status {
-    data object OnStart : Status()
-    class OnInProgress(percent: Int) : Status()
-    data object OnCompleted : Status()
-    class OnError(msg: String) : Status()
+    class OnStart(val message: String) : Status()
+    class OnInProgress(val message: String, val percent: Int) : Status()
+    class OnCompleted(val message: String) : Status()
+    class OnError(val message: String) : Status()
 }
